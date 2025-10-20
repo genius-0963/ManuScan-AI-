@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="ManuScan AI - Intelligent 3D Geometry Analysis for Manufacturing" />
+    <title>ManuScan AI - 3D Manufacturability Analyzer</title>
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  </head>
+  <body>
+    <div id="app">
+      <!-- Header -->
+      <header class="header">
+        <div class="container">
+          <h1 class="title">
+            <span class="icon">🔍</span>
+            ManuScan AI
+          </h1>
+          <p class="subtitle">Intelligent 3D Geometry Analysis Engine</p>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="main-content">
+        <div class="container">
+          <div class="layout">
+            <!-- Control Panel -->
+            <aside class="control-panel">
+              <div class="panel-section">
+                <h2>Load Model</h2>
+                <input
+                  type="file"
+                  id="file-input"
+                  accept=".stl,.step,.stp"
+                  style="display: none"
+                />
+                <button id="upload-btn" class="btn btn-primary">
+                  📂 Upload STL/STEP File
+                </button>
+                <button id="demo-btn" class="btn btn-secondary" style="margin-top: 10px;">
+                  🎬 Load Demo Analysis
+                </button>
+              </div>
+
+              <div class="panel-section">
+                <h2>Analysis</h2>
+                <button id="analyze-btn" class="btn btn-success" disabled>
+                  ⚡ Analyze Manufacturability
+                </button>
+              </div>
+
+              <div class="panel-section" id="results-panel" style="display: none">
+                <h2>📊 Analysis Results</h2>
+                
+                <div class="metric-card score-card">
+                  <div class="metric-label">Overall Score</div>
+                  <div id="overall-score" class="score">--</div>
+                  <div class="metric-unit">/100</div>
+                </div>
+
+                <div class="metrics-grid">
+                  <div class="metric-card">
+                    <div class="metric-label">Min Thickness</div>
+                    <div id="min-thickness" class="metric-value">--</div>
+                  </div>
+
+                  <div class="metric-card">
+                    <div class="metric-label">Thin Walls</div>
+                    <div id="thin-walls" class="metric-value">--</div>
+                  </div>
+
+                  <div class="metric-card">
+                    <div class="metric-label">Undercuts</div>
+                    <div id="undercuts" class="metric-value">--</div>
+                  </div>
+
+                  <div class="metric-card">
+                    <div class="metric-label">Sharp Edges</div>
+                    <div id="sharp-edges" class="metric-value">--</div>
+                  </div>
+
+                  <div class="metric-card">
+                    <div class="metric-label">Processing Time</div>
+                    <div id="processing-time" class="metric-value">--</div>
+                  </div>
+                </div>
+
+                <div id="verdict-section" style="margin-top: 20px; padding: 15px; border-radius: 8px; background: rgba(0,150,0,0.1); border: 2px solid rgba(0,150,0,0.3);">
+                  <h3 style="margin: 0 0 10px 0; color: #00aa00;">✅ Manufacturing Verdict</h3>
+                  <p id="verdict-text" style="margin: 0; font-size: 14px;">Analysis complete. Ready for production.</p>
+                </div>
+              </div>
+
+              <div class="panel-section">
+                <h2>Visualization</h2>
+                <select id="viz-mode" class="select">
+                  <option value="normal">Normal View</option>
+                  <option value="thickness" selected>Thickness Heatmap</option>
+                  <option value="undercuts">Undercuts</option>
+                  <option value="sharp_edges">Sharp Edges</option>
+                  <option value="draft_angles">Draft Angles</option>
+                </select>
+              </div>
+
+              <div class="panel-section">
+                <h2>Export</h2>
+                <button id="export-btn" class="btn btn-secondary">
+                  💾 Export Report (JSON)
+                </button>
+              </div>
+            </aside>
+
+            <!-- 3D Viewer -->
+            <section class="viewer-section">
+              <div id="viewer-container" class="viewer-container"></div>
+              <div id="status-message" class="status"></div>
+            </section>
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer class="footer">
+        <div class="container">
+          <p>
+            ManuScan AI - Built with TensorFlow.js, Three.js, and WebAssembly<br />
+            <small>Analyzing geometry at sub-100ms latency 🚀</small>
+          </p>
+        </div>
+      </footer>
+    </div>
+
+    <script type="module" src="/src/simple-main.ts"></script>
+  </body>
+</html>

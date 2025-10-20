@@ -1,0 +1,62 @@
+version: '3.8'
+
+services:
+  # Backend training environment
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile.backend
+    container_name: manuscan-backend
+    volumes:
+      - ./backend:/app/backend
+      - ./checkpoints:/app/checkpoints
+      - ./logs:/app/logs
+      - ./backend/data:/app/data
+    environment:
+      - CUDA_VISIBLE_DEVICES=0
+      - PYTHONUNBUFFERED=1
+    command: python -m backend.models.training
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    networks:
+      - manuscan-network
+
+  # Frontend development server
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.frontend
+    container_name: manuscan-frontend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+      - NODE_ENV=development
+    command: npm run dev
+    networks:
+      - manuscan-network
+
+  # Jupyter notebook for experimentation
+  notebook:
+    image: jupyter/tensorflow-notebook:latest
+    container_name: manuscan-notebook
+    ports:
+      - "8888:8888"
+    volumes:
+      - ./backend:/home/jovyan/work
+      - ./notebooks:/home/jovyan/notebooks
+    environment:
+      - JUPYTER_ENABLE_LAB=yes
+    networks:
+      - manuscan-network
+
+networks:
+  manuscan-network:
+    driver: bridge
