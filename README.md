@@ -11,8 +11,6 @@
 
 **Real-time AI-powered manufacturability analysis for 3D CAD models**
 
-[🚀 Quick Start](#-quick-start) • [📖 Documentation](#-documentation) • [🎯 Demo](#-demo) • [🤝 Contributing](#-contributing)
-
 </div>
 
 ---
@@ -30,15 +28,6 @@
 - 🎨 **Interactive Visualization** - Color-coded 3D heatmaps and detailed reports
 - 🔧 **Production Ready** - Complete CI/CD pipeline and Docker support
 
-## 🎯 Demo
-
-<div align="center">
-
-![ManuScan AI Demo](https://via.placeholder.com/800x400/667eea/ffffff?text=ManuScan+AI+Demo)
-
-**[🌐 Try Live Demo](https://your-demo-url.com)** | **[📹 Watch Video](https://your-video-url.com)**
-
-</div>
 
 ### Sample Analysis Results
 
