@@ -65,7 +65,7 @@ Verdict: ✅ APPROVED WITH MINOR REVISIONS
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/manuscan-ai.git
+git clone https://github.com/genius-0963/manuscan-ai.git
 cd manuscan-ai
 
 # Install dependencies
@@ -445,7 +445,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Built with ❤️ for engineers and manufacturers worldwide**
 
-[⭐ Star us on GitHub](https://github.com/yourusername/manuscan-ai) • [🐦 Follow on Twitter](https://twitter.com/manuscan_ai) • [💼 LinkedIn](https://linkedin.com/company/manuscan-ai)
+[⭐ Star us on GitHub](https://github.com/genius-0963/manuscan-ai) • [🐦 Follow on Twitter](https://twitter.com/manuscan_ai) • [💼 LinkedIn](https://linkedin.com/company/manuscan-ai)
 
 </div>
 │   ├── models/
@@ -690,9 +690,9 @@ Contributions welcome! Please read [CONTRIBUTING.md](CONTRIBUTING.md) first.
 
 ## 📧 Contact
 
-- **Project Lead**: [Your Name]
-- **Email**: contact@manuscan.ai
-- **Issues**: [GitHub Issues](https://github.com/yourusername/manuscan-ai/issues)
+- **Project Lead**: Saurabh 
+- **Email**: saurabhkumarsingh8787@gmail.com
+- **Issues**: [GitHub Issues](https://github.com/genius-0963/manuscan-ai/issues)
 
 ## 🙏 Acknowledgments
 
